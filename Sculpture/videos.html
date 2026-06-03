@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos | Washington Studios Inc. / A New Leaf Gallery</title>
+    <meta name="description" content="Watch video interviews with world-renowned sculptors and explore cinematic tours of our sculpture collections.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@0.400.0/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css?v=1.1.0">
+    <style>
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 3rem;
+            padding: 100px 0;
+        }
+        
+        .video-card {
+            position: relative;
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: all 0.4s var(--transition);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 250px;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .play-btn {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: scale(0.8);
+            transition: transform 0.3s;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+        
+        .video-card:hover .play-overlay {
+            opacity: 1;
+        }
+        
+        .video-card:hover .play-btn {
+            transform: scale(1);
+        }
+        
+        .video-info {
+            padding: 1.5rem;
+        }
+        
+        .video-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .video-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="glass-nav">
+        <div class="container nav-content">
+            <div class="logo">
+                <a href="find-sculpture.html" style="text-decoration: none; color: inherit;">
+                    <span class="logo-text">
+                        <span class="logo-main">WASHINGTON STUDIOS <span>INC.</span></span>
+                        <span class="logo-tagline">A NEW LEAF GALLERY</span>
+                    </span>
+                </a>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="find-sculpture.html">Find Sculpture</a></li>
+                    <li><a href="index.html">Artists</a></li>
+                    <li><a href="sculpturewalk.html">SculptureWalk</a></li>
+                    <li><a href="videos.html" class="active">Videos</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html" class="contact-btn">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero hero-videos fade-in">
+            <div class="container hero-content">
+                <h1>VIDEOS</h1>
+                <p class="subtitle">Explore the Process and Stories Behind Extraordinary Sculptures</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="video-grid">
+                <div class="video-card fade-in" style="--delay: 0.1s">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/featured-1.png" alt="Artist Interview">
+                        <div class="play-overlay">
+                            <div class="play-btn">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Cyrille Andre: Public Space</h3>
+                        <p>A deep dive into the creation of monumental bronze figures for public squares.</p>
+                    </div>
+                </div>
+
+                <div class="video-card fade-in" style="--delay: 0.2s">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/featured-2.png" alt="Bronze Casting">
+                        <div class="play-overlay">
+                            <div class="play-btn">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>The Art of Bronze Casting</h3>
+                        <p>Explore the lost-wax process at the foundry with our master sculptors.</p>
+                    </div>
+                </div>
+
+                <div class="video-card fade-in" style="--delay: 0.3s">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/featured-3.png" alt="Kinetic Studio">
+                        <div class="play-overlay">
+                            <div class="play-btn">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Jeffery Laudenslager: Motion</h3>
+                        <p>Watch how gravity and wind bring these massive titanium structures to life.</p>
+                    </div>
+                </div>
+
+                <div class="video-card fade-in" style="--delay: 0.4s">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/featured-4.png" alt="Gallery Tour">
+                        <div class="play-overlay">
+                            <div class="play-btn">
+                                <i data-lucide="play" fill="currentColor"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Autumn Highlights: Glen Ellen</h3>
+                        <p>A cinematic tour through our SculptureWalk outdoor exhibition during harvest season.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <div class="logo">
+                    <span class="logo-text" style="font-size: 1.1rem;">WASHINGTON STUDIOS<span> INC.</span></span>
+                </div>
+                <p>Curating exceptional sculpture for 35 years.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Contact</h4>
+                    <p><i data-lucide="phone"></i> <a href="tel:+16468814545" style="color: inherit; text-decoration: none;">+1(646)-881-4545</a></p>
+                    <p><i data-lucide="mail"></i> <a href="mailto:amandamarshall770@gmail.com" style="color: inherit; text-decoration: none;">amandamarshall770@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>All contents copyright Washington Studios Inc. 2018 to 2026. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js?v=1.1.0"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,858 @@
+:root {
+    --primary: #1a1a1a;
+    --secondary: #f4f4f4;
+    --accent: #c5a059;
+    --text: #1a1a1a;
+    --text-muted: #666666;
+    --bg: #ffffff;
+    --glass: rgba(255, 255, 255, 0.85);
+    --transition: cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Glass Navigation */
+.glass-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    background: var(--glass);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s var(--transition);
+}
+
+.nav-content {
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.logo-main {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.logo-main span {
+    font-weight: 300;
+    color: var(--text-muted);
+}
+
+.logo-tagline {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+.desktop-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.desktop-nav a:hover, .desktop-nav a.active {
+    color: var(--accent);
+}
+
+.contact-btn {
+    padding: 0.8rem 1.5rem;
+    border: 1px solid var(--primary);
+    border-radius: 50px;
+}
+
+.contact-btn:hover {
+    background: var(--primary);
+    color: white !important;
+}
+
+.mobile-menu-toggle {
+    display: none;
+}
+
+/* Hero Section */
+.hero {
+    height: 90vh;
+    padding: 0;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('assets/images/hero-sculpture.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+}
+
+.hero h1, .hero p, .hero .subtitle {
+    color: #ffffff !important;
+}
+
+.majestic-title {
+    font-weight: 300 !important;
+    letter-spacing: 12px !important;
+    font-size: clamp(2rem, 6vw, 4rem) !important;
+    text-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.majestic-subtitle {
+    letter-spacing: 4px !important;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+    font-weight: 400 !important;
+}
+
+.majestic-description {
+    margin-top: 3rem;
+}
+
+/* MOBILE FIX FOR MAJESTIC HERO */
+@media (max-width: 768px) {
+    .hero-home-fix {
+        padding-top: 140px !important;
+        height: auto !important;
+        min-height: 80vh !important;
+    }
+
+    .majestic-title {
+        letter-spacing: 4px !important;
+        font-size: 2.22rem !important;
+        line-height: 1.2 !important;
+        padding: 0 10px;
+    }
+
+    .majestic-subtitle {
+        font-size: 0.9rem !important;
+        letter-spacing: 2px !important;
+        padding-top: 1rem !important;
+    }
+
+    .majestic-description {
+        margin-top: 1.5rem !important;
+        padding: 0 15px !important;
+    }
+
+    .majestic-description p {
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+    }
+}
+
+.subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: var(--secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 2.5rem;
+}
+
+.description p {
+    max-width: 850px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.95);
+    letter-spacing: 0.5px;
+}
+
+/* Featured Section */
+.featured {
+    padding: 50px 0 100px;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.featured-card {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    height: 500px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: transform 0.6s var(--transition);
+}
+
+.featured-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--transition);
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+    color: white;
+    opacity: 0.9;
+    transition: all 0.3s;
+}
+
+.featured-card:hover {
+    transform: translateY(-10px);
+}
+
+.featured-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Gallery Controls */
+.gallery-controls {
+    background: var(--secondary);
+    padding: 2rem 0;
+    margin-bottom: 4rem;
+}
+
+.controls-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar {
+    position: relative;
+    width: 300px;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 50px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-bar input:focus {
+    border-color: var(--accent);
+}
+
+.filter-btn {
+    background: none;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-left: 0.5rem;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* Artist Grid */
+.artist-directory {
+    padding-bottom: 100px;
+}
+
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.artist-card {
+    background: white;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    cursor: pointer;
+    transition: all 0.3s var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.artist-img-wrapper {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: var(--secondary);
+}
+
+.artist-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s var(--transition);
+}
+
+.artist-info {
+    padding: 1.5rem;
+    position: relative;
+    background: white;
+}
+
+.artist-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background: var(--accent);
+    transition: width 0.3s;
+    z-index: 10;
+}
+
+.artist-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.artist-card:hover img {
+    transform: scale(1.1);
+}
+
+.artist-card:hover::before {
+    width: 100%;
+}
+
+.artist-card h3 {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+}
+
+.artist-card span {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 1s var(--transition) forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .featured-grid { grid-template-columns: repeat(2, 1fr); }
+    .featured-card { height: 400px; }
+}
+
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.8rem; }
+    .controls-wrapper { flex-direction: column; gap: 1.5rem; }
+    .search-bar { width: 100%; }
+    .filters { display: flex; overflow-x: auto; width: 100%; padding-bottom: 0.5rem; }
+}
+
+/* Footer */
+footer {
+    background: var(--primary);
+    color: white;
+    padding: 80px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 4rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: white;
+    opacity: 0.6;
+    font-size: 1.2rem;
+    transition: all 0.3s var(--transition);
+}
+
+.social-links a:hover {
+    opacity: 1;
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.5;
+}
+
+.locations-grid {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.location-card {
+    background: var(--secondary);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.location-card h4 {
+    color: var(--accent);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.location-card p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+/* --- Global Responsive Fixes for All Pages --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .nav-content {
+        height: 60px !important; /* COMPACT HEADER */
+    }
+
+    .logo-text {
+        font-size: 0.9rem !important; /* SLIGHTLY LARGER FOR CLARITY */
+        line-height: 1.1 !important;
+        max-width: none !important; /* ALLOW FULL WIDTH TO PREVENT WRAPPING */
+        width: auto !important;
+    }
+
+    .logo-main {
+        white-space: nowrap !important; /* FORCE ONE LINE */
+    }
+
+    .logo-main span {
+        display: inline !important; /* KEEP "INC." ON THE SAME LINE */
+        font-size: inherit !important;
+        color: var(--text-muted) !important;
+    }
+
+    .logo-tagline {
+        display: block !important; /* ENSURE TAGLINE IS ON NEXT LINE */
+        font-size: 0.65rem !important;
+        letter-spacing: 2px !important;
+        color: var(--text-muted) !important;
+    }
+
+    /* Mobile Menu Toggle Positioning */
+    .mobile-menu-toggle {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 48px;
+        height: 48px;
+        cursor: pointer;
+        z-index: 1050; /* Above everything */
+        position: relative;
+        margin-right: -14px; /* Nudge further to the edge */
+        margin-top: -6px;   /* Nudge slightly higher */
+        background: rgba(255,255,255,0.1);
+        border-radius: 50%;
+        transition: background 0.3s;
+    }
+    
+    .mobile-menu-toggle:active {
+        background: rgba(0,0,0,0.05);
+    }
+    
+    .mobile-menu-toggle i {
+        width: 28px;
+        height: 28px;
+        color: var(--primary);
+    }
+    
+    .desktop-nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--glass);
+        backdrop-filter: blur(30px);
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.6s var(--transition);
+        z-index: 1040;
+    }
+
+    .desktop-nav.mobile-active {
+        right: 0;
+    }
+
+    .desktop-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .desktop-nav a {
+        font-size: 1.25rem;
+    }
+
+    section {
+        padding: 60px 0 !important;
+    }
+
+    .hero {
+        padding: 120px 20px 60px !important;
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .hero-content {
+        max-width: 100% !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem !important;
+        letter-spacing: 1px !important;
+        margin-bottom: 1rem !important;
+        width: 100% !important;
+    }
+
+    .subtitle {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+        width: 100% !important;
+    }
+
+    .description {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .description p {
+        margin: 0 auto !important;
+        font-size: 1rem !important;
+        text-align: center !important;
+        max-width: 100% !important;
+    }
+
+    .section-title {
+        font-size: 1.8rem !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Force all layout grids to single column on mobile */
+    .featured-grid,
+    .artist-grid,
+    .story-grid,
+    .discovery-grid,
+    .video-grid,
+    .tour-grid,
+    .portfolio-grid,
+    .contact-grid,
+    .locations-grid,
+    .stats-grid,
+    .footer-content,
+    .footer-links {
+        grid-template-columns: 1fr !important;
+        flex-direction: column !important;
+        gap: 2rem !important;
+        text-align: center;
+    }
+
+    .link-group {
+        align-items: center;
+    }
+
+    /* About Us Specific Hero Fix */
+    .hero-about {
+        min-height: 70vh !important;
+        display: block !important; /* DISABLING FLEX TO PREVENT JUMPING */
+        padding-top: 200px !important; /* MASSIVE SPACING TO ENSURE VISIBILITY */
+        padding-bottom: 80px !important;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/images/hero-sculpture.png') !important; /* DARKER FOR BETTER CONTRAST */
+        background-size: cover !important;
+        background-position: center !important;
+        color: white !important;
+        text-align: center !important;
+    }
+
+    .hero-about .hero-content {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    .hero-about h1 {
+        font-size: 2.4rem !important; /* SCALED FOR BETTER FIT */
+        margin-bottom: 1rem !important;
+        color: white !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        text-shadow: 0 4px 15px rgba(0,0,0,0.5) !important;
+    }
+
+    .hero-about .subtitle, .hero-about .description p {
+        color: rgba(255,255,255,1) !important; /* FULL WHITE FOR SHARPNESS */
+        max-width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    /* SculptureWalk Specific Hero Fix */
+    .sw-hero {
+        min-height: 70vh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        padding-top: 120px !important;
+        background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/images/hero-sculpture.png') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        color: white !important;
+        text-align: center !important;
+    }
+
+    .sw-hero h1 {
+        font-size: clamp(2rem, 10vw, 4rem) !important;
+        font-weight: 800 !important;
+        color: white !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        text-shadow: 0 5px 20px rgba(0,0,0,0.8) !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .sw-hero p {
+        font-size: clamp(1rem, 4vw, 1.5rem) !important;
+        color: rgba(255,255,255,0.9) !important;
+        max-width: 800px !important;
+        margin: 0 auto !important;
+    }
+
+    .hero-walk .description p {
+        color: rgba(255,255,255,0.95) !important;
+        max-width: 90% !important;
+        margin: 0 auto !important;
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        text-shadow: 0 2px 5px rgba(0,0,0,0.5) !important;
+    }
+
+    /* Portfolio Specific Hero Fix */
+    .hero-fixed {
+        padding-top: 180px !important;
+        min-height: 70vh !important;
+        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('assets/images/hero-sculpture.png') !important; /* FRESH CLEAN IMAGE */
+        background-size: cover !important;
+        background-position: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+
+    .hero-fixed h1 {
+        font-size: clamp(2rem, 10vw, 3.5rem) !important;
+        color: white !important;
+        text-transform: uppercase !important;
+        letter-spacing: 2px !important;
+        text-shadow: 0 5px 20px rgba(0,0,0,0.8) !important;
+    }
+
+    .hero-fixed p {
+        color: white !important; /* FORCING WHITE FOR READABILITY */
+        font-size: 1.1rem !important;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+        max-width: 90% !important;
+        margin: 1rem auto !important;
+    }
+
+    .portfolio-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .portfolio-tabs .filter-btn {
+        color: white !important;
+        border-color: rgba(255,255,255,0.4) !important;
+        background: rgba(255,255,255,0.1) !important;
+    }
+
+    .portfolio-tabs .filter-btn.active {
+        background: white !important;
+        color: var(--primary) !important;
+    }
+
+    /* Videos Specific Hero Fix */
+    .hero-videos {
+        min-height: 80vh !important;
+        background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('assets/images/hero-sculpture.png') !important;
+        background-size: cover !important;
+        background-position: center !important;
+        background-attachment: fixed !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        color: #ffffff !important;
+        padding-top: 100px !important; /* REDUCED TOP PADDING ON DESKTOP TO ALLOW VERTICAL CENTERING */
+    }
+
+    .hero-videos h1, .hero-videos p {
+        color: #ffffff !important;
+    }
+
+    .hero-videos h1 {
+        font-size: clamp(3rem, 10vw, 6rem) !important; /* LARGER FOR DESKTOP */
+        margin-bottom: 2rem !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 5px !important; /* MORE EDITORIAL SPACING */
+        text-shadow: 0 10px 40px rgba(0,0,0,0.8) !important;
+    }
+
+    .hero-videos .subtitle {
+        font-size: clamp(1.2rem, 2vw, 1.8rem) !important;
+        color: var(--secondary) !important;
+        font-weight: 400 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 6px !important;
+        max-width: 1000px !important;
+        margin: 0 auto !important;
+        opacity: 0.95;
+    }
+
+    .artist-img-wrapper {
+        height: 300px !important;
+    }
+
+    /* SculptureWalk and Portfolio special handling */
+    .tour-item {
+        flex-direction: column !important;
+        height: auto !important;
+    }
+
+    .tour-img, .tour-info {
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .tour-info {
+        padding: 2rem !important;
+    }
+
+    .video-card iframe {
+        height: 250px !important;
+    }
+}
